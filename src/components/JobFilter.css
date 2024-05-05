@@ -1,0 +1,24 @@
+.job-filters{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: 20px;
+}
+
+.job-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.fliter-button{
+    width: fit-content;
+    height: 40px;
+    align-self: center;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-self: center;
+}
