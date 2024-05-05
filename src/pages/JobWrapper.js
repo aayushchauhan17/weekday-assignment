@@ -21,6 +21,8 @@ export function JobWrapper(){
         <div >
             <JobFilters />
 
+            {filteredJobs.length === 0 && <div style={{margin: "40px"}}> No Job Found</div>}
+
             <div className='container-wrapper'>
                 <div className='job-list'>
                     {filteredJobs?.map((job, idx)=>{
