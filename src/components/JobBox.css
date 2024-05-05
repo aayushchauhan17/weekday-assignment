@@ -1,0 +1,61 @@
+.container{
+    width: 340px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #d3d2d2;
+    margin: 20px;
+}
+
+.postTime{
+    text-align: left;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px #d3d2d2;
+    width: fit-content;
+    padding: 6px 8px;
+    margin-bottom: 20px;
+}
+
+.job-details{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.job-names{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.company-name{
+    font-weight: bold;
+}
+
+.salary{
+    text-align: left;
+}
+
+.about{
+    text-align: left;
+}
+
+.about-company{
+    font-weight: bold;
+}
+.exp{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    text-align: left;
+}
+
+.minimum-experience{
+    font-weight: bold;
+}
+
+.jobDetailsFromCompany{
+    color: #777;
+    height: 210px;
+    overflow: hidden;
+}

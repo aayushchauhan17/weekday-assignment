@@ -1,0 +1,12 @@
+.job-list{
+    width: 80%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.container-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

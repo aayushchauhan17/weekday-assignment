@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { fetchJobs } from '../slices/job.slice';
 import { useSelector, useDispatch } from 'react-redux';
 import JobFilters from '../components/JobFilter';
+import { JobBox } from '../components/JobBox';
+import './JobWrapper.css'
 
 export function JobWrapper(){
     const dispatch = useDispatch();
@@ -14,12 +16,22 @@ export function JobWrapper(){
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
-    console.log(jobs);
-    console.log(filteredJobs);
 
     return(
-        <>
+        <div >
             <JobFilters />
-        </>
+
+            <div className='container-wrapper'>
+                <div className='job-list'>
+                    {filteredJobs?.map((job, idx)=>{
+                        return (
+                            <div key={idx}>
+                                <JobBox job={job} />
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        </div>
     )
 }
