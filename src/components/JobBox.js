@@ -3,6 +3,7 @@ import './JobBox.css';
 import { Button } from '@mui/material';
 
 export function JobBox({job}){
+    //job card
     return (
         <>
             <div className='container'>

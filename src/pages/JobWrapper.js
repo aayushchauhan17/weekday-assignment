@@ -9,10 +9,12 @@ export function JobWrapper(){
     const dispatch = useDispatch();
     const { jobs, filteredJobs ,loading, error } = useSelector(state => state.jobs);
 
+    //whenever the page opens this will load the jobs
     useEffect(() => {
         dispatch(fetchJobs());
     }, [dispatch]);
 
+    //this will make our app  infinite scroll for a seamless browsing experience i.e. wheneever user is at the bottom of the page it will load new jobs
     useEffect(() => {
         const handleScroll = () => {
             const scrollPosition = window.innerHeight + window.scrollY;
@@ -36,10 +38,12 @@ export function JobWrapper(){
 
     return(
         <div >
+            {/* filters */}
             <JobFilters />
 
             {filteredJobs.length === 0 && <div style={{margin: "40px"}}> No Job Found</div>}
 
+            {/* list of all the jobs */}
             <div className='container-wrapper'>
                 <div className='job-list'>
                     {filteredJobs?.map((job, idx)=>{

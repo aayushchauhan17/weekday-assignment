@@ -17,6 +17,7 @@ const initialState = {
   filter: defaultFilter
 };
 
+//fetch api
 export const fetchJobs = createAsyncThunk(
     'jobs/fetchJobs',
     async (_, { rejectWithValue }) => {
@@ -45,6 +46,8 @@ export const fetchJobs = createAsyncThunk(
     }
 );
 
+
+//filter function 
 const applyFilter = (jobs, filter) => {
     let filterJobs = jobs
     if(filter.minExperience){
@@ -80,14 +83,17 @@ const applyFilter = (jobs, filter) => {
 const jobSlice = createSlice({
   name: 'jobs',
   initialState,
+  //reducers
   reducers: {
     filterPayloadChanged : (state, action) => {
         console.log(action.payload);
         state.filter = action.payload;
+        //appling filter when user perform action
         let filteredJobs = applyFilter(state.jobs, action.payload);
         state.filteredJobs = filteredJobs;
     }
   },
+  //api reducers
   extraReducers: (builder) => {
     builder
       .addCase(fetchJobs.pending, (state) => {
@@ -96,6 +102,7 @@ const jobSlice = createSlice({
       })
       .addCase(fetchJobs.fulfilled, (state, action) => {
         let allJobs = [...state.jobs, ...action.payload.jdList];
+        //appling filter when i will log new jobs
         let filteredJobs = applyFilter(allJobs, state.filter);
         state.loading = false;
         state.jobs = allJobs;

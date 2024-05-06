@@ -6,6 +6,7 @@ import { filterPayloadChanged } from '../slices/job.slice';
 
 const JobFilters = () => {
   const dispatch = useDispatch();
+  //default state of the filter
   const [filters, setLocalFilters] = useState({
     minExperience: '',
     companyName: '',
@@ -14,6 +15,7 @@ const JobFilters = () => {
     minBasePay: ''
   });
 
+  //change the value in the usestate
   const handleChange = (e) => {
     const { name, value, } = e.target;
     setLocalFilters(prevFilters => ({
@@ -22,10 +24,12 @@ const JobFilters = () => {
     }));
   };
 
+  // perform the action
   const handleFilterApply = () => {
     dispatch(filterPayloadChanged(filters));
   };
 
+  //reset function
   const handleResetApply = () => {
     const defaultFilter = {
         minExperience: '',
